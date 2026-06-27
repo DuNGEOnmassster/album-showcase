@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四季光影 · 视频演示</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; overflow: hidden; }
+  body { background: #0a0a0a; color: #f5f2eb; font-family: Georgia, serif; }
+  
+  /* 16:9 舞台 */
+  .stage {
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(var(--scale, 1));
+    transform-origin: center;
+    overflow: hidden;
+  }
+  
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+  }
+  .slide.active { opacity: 1; }
+  .slide img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+  }
+  .slide-text {
+    position: absolute;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+  }
+  .slide-season {
+    font-size: 0.9rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: #c4a882;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s 0.5s ease;
+  }
+  .slide.active .slide-season {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .slide-title {
+    font-size: 5rem;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s 0.8s ease;
+  }
+  .slide.active .slide-title {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .slide-desc {
+    font-family: -apple-system, sans-serif;
+    font-size: 1.1rem;
+    color: rgba(245, 242, 235, 0.7);
+    max-width: 500px;
+    line-height: 1.8;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s 1.1s ease;
+  }
+  .slide.active .slide-desc {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.1) 40%, rgba(10,10,10,0.6) 100%);
+    z-index: 1;
+  }
+  
+  /* 进度条 */
+  .progress-bar {
+    position: fixed;
+    bottom: 0; left: 0;
+    height: 3px;
+    background: #c4a882;
+    transition: width 0.3s ease;
+    z-index: 100;
+  }
+  .progress-bar.hidden { opacity: 0; }
+  
+  /* 控制提示 */
+  .controls {
+    position: fixed;
+    bottom: 20px; right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .stage:hover .controls { opacity: 1; }
+  .controls button {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    backdrop-filter: blur(10px);
+  }
+  .controls button:hover { background: rgba(255,255,255,0.2); }
+  
+  .slide-counter {
+    position: fixed;
+    bottom: 20px; left: 20px;
+    font-size: 0.8rem;
+    color: rgba(245,242,235,0.4);
+    letter-spacing: 0.1em;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .stage:hover .slide-counter { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage">
+  
+  <!-- Slide 1: Title -->
+  <div class="slide active" data-slide="1">
+    <img src="images/898a310228a06cbb6b70aa3a51bad09e.jpg" alt="">
+    <div class="slide-overlay"></div>
+    <div class="slide-text">
+      <div class="slide-season">四季光影</div>
+      <div class="slide-title" style="font-size: 6rem;">四季 · 光影</div>
+      <div class="slide-desc">用镜头记录时间最温柔的形状</div>
+    </div>
+  </div>
+  
+  <!-- Slide 2: Spring -->
+  <div class="slide" data-slide="2">
+    <img src="images/898a310228a06cbb6b70aa3a51bad09e.jpg" alt="">
+    <div class="slide-overlay"></div>
+    <div class="slide-text">
+      <div class="slide-season">Spring · 春</div>
+      <div class="slide-title">落樱成雨</div>
+      <div class="slide-desc">樱花隧道下，花瓣如雪般飘落。春天最温柔的时刻，不是花开，而是花落。</div>
+    </div>
+  </div>
+  
+  <!-- Slide 3: Summer -->
+  <div class="slide" data-slide="3">
+    <img src="images/cb40b48e17abea0b604a39b5ec948d29.jpg" alt="">
+    <div class="slide-overlay"></div>
+    <div class="slide-text">
+      <div class="slide-season">Summer · 夏</div>
+      <div class="slide-title">云卷云舒</div>
+      <div class="slide-desc">盛夏的草原上，积雨云如一座白色城堡悬于天际。</div>
+    </div>
+  </div>
+  
+  <!-- Slide 4: Autumn -->
+  <div class="slide" data-slide="4">
+    <img src="images/a8729f630bcec2f4eda23b2728c20cc1.jpg" alt="">
+    <div class="slide-overlay"></div>
+    <div class="slide-text">
+      <div class="slide-season">Autumn · 秋</div>
+      <div class="slide-title">向晚的列车</div>
+      <div class="slide-desc">蒸汽火车穿过金黄与深红交织的枫林，秋天的列车不赶时间。</div>
+    </div>
+  </div>
+  
+  <!-- Slide 5: Winter -->
+  <div class="slide" data-slide="5">
+    <img src="images/a8b8eeb825ad3ace7121519b29f5c431.jpg" alt="">
+    <div class="slide-overlay"></div>
+    <div class="slide-text">
+      <div class="slide-season">Winter · 冬</div>
+      <div class="slide-title">雪夜归途</div>
+      <div class="slide-desc">雪夜里，一盏路灯独自亮着。雪花在暖光中飞舞，像无数颗小小的星星。</div>
+    </div>
+  </div>
+  
+  <!-- Slide 6: End -->
+  <div class="slide" data-slide="6">
+    <img src="images/c7f41aff03761037f0fd48ea8c0be577.jpg" alt="">
+    <div class="slide-overlay"></div>
+    <div class="slide-text">
+      <div class="slide-season">Behind the Lens</div>
+      <div class="slide-title">追光的人</div>
+      <div class="slide-desc">摄影不是记录，而是等待——等待光线、等待季节、等待那个让平凡变得不凡的瞬间。</div>
+    </div>
+  </div>
+</div>
+
+<div class="progress-bar" id="progress"></div>
+<div class="slide-counter" id="counter">1 / 6</div>
+<div class="controls">
+  <button onclick="prevSlide()">← 上一步</button>
+  <button onclick="toggleAuto()" id="autoBtn">▶ 自动播放</button>
+  <button onclick="nextSlide()">下一步 →</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const progress = document.getElementById('progress');
+  const counter = document.getElementById('counter');
+  let current = 0;
+  let autoPlay = false;
+  let autoInterval = null;
+  const slideDuration = 5000; // 5s per slide
+  
+  // Scale stage to viewport
+  function scaleStage() {
+    const w = window.innerWidth / 1920;
+    const h = window.innerHeight / 1080;
+    const scale = Math.min(w, h);
+    document.getElementById('stage').style.setProperty('--scale', scale);
+  }
+  scaleStage();
+  window.addEventListener('resize', scaleStage);
+  
+  function showSlide(n) {
+    slides.forEach(s => s.classList.remove('active'));
+    slides[n].classList.add('active');
+    progress.style.width = ((n + 1) / slides.length * 100) + '%';
+    counter.textContent = (n + 1) + ' / ' + slides.length;
+    current = n;
+  }
+  
+  function nextSlide() {
+    showSlide((current + 1) % slides.length);
+  }
+  
+  function prevSlide() {
+    showSlide((current - 1 + slides.length) % slides.length);
+  }
+  
+  function toggleAuto() {
+    autoPlay = !autoPlay;
+    const btn = document.getElementById('autoBtn');
+    if (autoPlay) {
+      btn.textContent = '⏸ 暂停';
+      autoInterval = setInterval(nextSlide, slideDuration);
+    } else {
+      btn.textContent = '▶ 自动播放';
+      clearInterval(autoInterval);
+    }
+  }
+  
+  // Keyboard nav
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+    if (e.key === 'ArrowLeft') prevSlide();
+  });
+  
+  // Auto-play mode (?auto=1)
+  if (window.location.search.includes('auto=1')) {
+    toggleAuto();
+  }
+</script>
+
+</body>
+</html>

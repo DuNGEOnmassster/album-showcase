@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四季光影 · 摄影手记</title>
+<style>
+  :root {
+    --bg: #faf8f5;
+    --text: #1a1a1a;
+    --text-muted: #6b6b6b;
+    --accent: #c4a882;
+    --font-display: "Georgia", "Times New Roman", serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.8;
+    font-size: 17px;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: var(--space-lg) var(--space-md);
+  }
+  .hero-image {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    display: block;
+    margin-bottom: var(--space-lg);
+  }
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: var(--space-sm);
+    letter-spacing: -0.02em;
+  }
+  .article-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+  }
+  .meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .meta span { margin-right: 1.5rem; }
+  .lead {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: var(--space-lg);
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--accent);
+  }
+  p {
+    margin-bottom: var(--space-md);
+    text-align: justify;
+    text-wrap: pretty;
+  }
+  .photo-block {
+    margin: var(--space-xl) 0;
+  }
+  .photo-block img {
+    width: 100%;
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+  .photo-caption {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+    font-style: italic;
+  }
+  .quote {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-style: italic;
+    text-align: center;
+    padding: var(--space-lg) var(--space-md);
+    margin: var(--space-xl) 0;
+    color: var(--text-muted);
+    position: relative;
+  }
+  .quote::before {
+    content: '"';
+    font-size: 4rem;
+    position: absolute;
+    top: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--accent);
+    opacity: 0.3;
+    font-family: var(--font-display);
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: var(--space-xl) 0 var(--space-md);
+    letter-spacing: -0.01em;
+  }
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--accent);
+    margin: var(--space-xl) auto;
+    opacity: 0.5;
+  }
+  footer {
+    text-align: center;
+    padding: var(--space-xl) var(--space-md);
+    border-top: 1px solid rgba(0,0,0,0.08);
+    margin-top: var(--space-xl);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  @media (max-width: 600px) {
+    .container { padding: var(--space-md); }
+    .hero-image { height: 35vh; }
+  }
+</style>
+</head>
+<body>
+
+<img class="hero-image" src="images/a8729f630bcec2f4eda23b2728c20cc1.jpg" alt="秋火车">
+
+<div class="container">
+  <h1 class="article-title">四季光影</h1>
+  <p class="article-subtitle">用镜头记录时间最温柔的形状</p>
+  <div class="meta">
+    <span>2026年6月</span>
+    <span>四季 · 光影</span>
+    <span>摄影手记</span>
+  </div>
+
+  <p class="lead">"摄影是用光线书写的诗，而四季是最美的韵脚。"这不是一句装饰性的引言——当你真的背着相机，在凌晨五点的樱花隧道下等待第一缕光，或是在零下十度的雪夜里守住一盏路灯，你会发现：时间是有形状的。</p>
+
+  <p>这组作品始于一个朴素的念头：用一年时间，记录四个季节里光线最动人的瞬间。没有宏大的叙事，没有刻意的人文关怀，只是单纯地想——看看光在四季里怎么变化。</p>
+
+  <h2>春 · 落樱</h2>
+  <p>春天是粉色的。不是那种明艳的粉，而是樱花瓣飘落时，被阳光穿透后的半透明粉。在樱花隧道下，风一吹，整个世界就下起了粉色的雪。相机很难捕捉这种动态——花瓣太小、移动太快、光线太柔。但当你按下快门的那一刻，你记住的不是照片，而是那一刻空气中的温度。</p>
+
+  <div class="photo-block">
+    <img src="images/898a310228a06cbb6b70aa3a51bad09e.jpg" alt="樱花隧道">
+    <p class="photo-caption">樱花隧道 · 春 | ISO 200 · f/2.8 · 1/500s</p>
+  </div>
+
+  <p>这张照片用了 f/2.8 的大光圈，不是为了虚化背景，而是想让前景的樱花瓣和背景的隧道形成一种"被包裹"的感觉。你站在隧道中间，前后都是花，天地之间只剩下粉色和光。</p>
+
+  <div class="divider"></div>
+
+  <h2>夏 · 云</h2>
+  <p>夏天的光最烈，也最慷慨。午后的积雨云像一座白色城堡悬在草原上空，阳光从云层的边缘漏出来，把大地切成明暗两半。这是夏天最壮阔的独白——天空与大地的对话，不需要翻译，只需要看。</p>
+
+  <div class="photo-block">
+    <img src="images/cb40b48e17abea0b604a39b5ec948d29.jpg" alt="草原云">
+    <p class="photo-caption">草原积雨云 · 夏 | ISO 100 · f/8 · 1/1000s</p>
+  </div>
+
+  <p>f/8 的小光圈让前景的草原和背景的蓝天都保持清晰。这不是一张"主体明确"的照片——它的主体是整个天空，是整个夏天的气息。拍这张照片的时候，我躺在草地上， grass 刺得后背发痒，但我不敢动，怕惊扰了云的形状。</p>
+
+  <div class="divider"></div>
+
+  <h2>秋 · 列车</h2>
+  <p>秋天的光是斜的。太阳不再直射，而是从侧面照过来，把每一片枫叶的纹理都雕刻出来。蒸汽火车穿过枫林的那一刻，烟和光混在一起，世界变成了一幅印象派油画。</p>
+
+  <div class="photo-block">
+    <img src="images/a8729f630bcec2f4eda23b2728c20cc1.jpg" alt="秋火车">
+    <p class="photo-caption">向晚的列车 · 秋 | ISO 400 · f/4 · 1/250s</p>
+  </div>
+
+  <p>这是整个系列里我最喜欢的一张。不是因为技术多完美，而是因为它捕捉到了"等待的回报"。我在那座桥上等了四十分钟，火车来了又走，走了又来。当这一辆冒着白烟的蒸汽火车驶入画面，阳光刚好从云层的缝隙里射下来——那一刻，我知道就是它了。</p>
+
+  <div class="quote">
+    摄影不是记录，而是等待——等待光线、等待季节、等待那个让平凡变得不凡的瞬间。
+  </div>
+
+  <div class="divider"></div>
+
+  <h2>冬 · 路灯</h2>
+  <p>冬天的光最少，但也最珍贵。雪夜里，一盏路灯独自亮着，雪花在暖光中飞舞，像无数颗小小的星星。这是冬天最温柔的时刻——当你走过路灯，身后留下一串脚印，很快被雪覆盖，仿佛你从未来过。</p>
+
+  <div class="photo-block">
+    <img src="images/a8b8eeb825ad3ace7121519b29f5c431.jpg" alt="雪夜路灯">
+    <p class="photo-caption">雪夜归途 · 冬 | ISO 1600 · f/1.8 · 1/60s</p>
+  </div>
+
+  <p>高 ISO 带来了噪点，但我不介意。噪点让照片有了颗粒感，就像老电影一样。f/1.8 的大光圈把路灯的光晕拍得柔和而温暖，和周围冷蓝的夜色形成对比。这是冬夜里唯一的热源——不仅是物理上的，也是心理上的。</p>
+
+  <div class="divider"></div>
+
+  <h2>关于摄影师</h2>
+  <p>站在城市的高处，等待光线最好的那一刻。我拍的不是风景，而是风景里的光。每一张照片背后，都有一个关于等待的故事——等云散开、等火车驶来、等雪花落到合适的角度、等太阳升到刚刚好的高度。</p>
+
+  <div class="photo-block">
+    <img src="images/c7f41aff03761037f0fd48ea8c0be577.jpg" alt="摄影师">
+    <p class="photo-caption">追光的人 · 城市天台 | golden hour</p>
+  </div>
+
+  <p>如果你也在某个瞬间，被一束光打动——那说明你的眼睛还醒着。拿起相机，或者只是把它记在心里。四季流转，光永远在，关键是，你在不在那里。</p>
+</div>
+
+<footer>
+  <p>四季 · 光影 · 2026</p>
+  <p style="margin-top: 0.5rem; font-size: 0.75rem;">用镜头记录时间最温柔的形状</p>
+</footer>
+
+</body>
+</html>
